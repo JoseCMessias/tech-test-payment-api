@@ -12,6 +12,5 @@ namespace tech_test_payment_api.Models
         public int IdDoPedido { get; set; }
         public int IdDoItem { get; set; }
         public DateTime Data { get; set; }
-        public Vendedor Vendedor { get; set; }
     }
 }

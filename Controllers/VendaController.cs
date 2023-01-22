@@ -15,14 +15,14 @@ namespace tech_test_payment_api.Controllers
         [HttpPost("RegistrarVenda")]
         public IActionResult RegistrarVenda()
         {
-            
+            return Ok();
         }
 
         // Buscar venda: Busca pelo Id da venda;
         [HttpGet("BuscarPorId/{id}")]
         public IActionResult BuscarVenda(int id)
         {
-
+            return Ok();
         }
 
         /* Atualizar venda: Permite que seja atualizado o status da venda.
@@ -31,7 +31,7 @@ namespace tech_test_payment_api.Controllers
         [HttpPut("AtualizarVenda")]
         public IActionResult AtualizarVenda()
         {
-
+            return Ok();
         }
     }
 }
