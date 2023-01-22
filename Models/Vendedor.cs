@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace tech_test_payment_api.Models
+{
+    public class Vendedor
+    {
+        // O vendedor deve possuir id, cpf, nome, e-mail e telefone;
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string CPF { get; set; }
+        public string Email { get; set; }
+        public string Telefone { get; set; }
+
+    }
+}
