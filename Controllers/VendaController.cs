@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using tech_test_payment_api.Context;
 using tech_test_payment_api.Models;
 
 namespace tech_test_payment_api.Controllers
@@ -11,11 +12,27 @@ namespace tech_test_payment_api.Controllers
     [Route("[controller]")]
     public class VendaController : ControllerBase
     {
-        // Registrar venda: Recebe os dados do vendedor + itens vendidos. Registra venda com status "Aguardando pagamento";
-        [HttpPost("RegistrarVenda")]
-        public IActionResult RegistrarVenda()
+        private readonly VendaContext _context;
+
+        public VendaController(VendaContext context)
         {
-            return Ok();
+            _context = context;
+        }
+
+        // Registrar venda: Recebe os dados do vendedor + itens vendidos. Registra venda com status "Aguardando pagamento";
+        [HttpPost("RegistrarVenda")] //Post envia
+        public IActionResult RegistrarVenda(Venda venda)
+        {
+            _context.Add(venda);
+            _context.SaveChanges();
+
+            if (venda != null)
+            {
+                // Console.WriteLine("Aguardando pagamento");
+                return Ok("Aguardando pagamento");      
+            }
+
+            return Ok(venda);
         }
 
         // Buscar venda: Busca pelo Id da venda;
