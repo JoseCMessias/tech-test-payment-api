@@ -26,20 +26,26 @@ namespace tech_test_payment_api.Controllers
             _context.Add(venda);
             _context.SaveChanges();
 
-            if (venda != null)
+            if (venda.Id == null)
             {
-                // Console.WriteLine("Aguardando pagamento");
-                return Ok("Aguardando pagamento");      
+                return NotFound();
             }
 
-            return Ok(venda);
+            // return Ok(venda);
+            return Ok("Aguardando pagamento");
         }
 
         // Buscar venda: Busca pelo Id da venda;
-        [HttpGet("BuscarPorId/{id}")]
+        [HttpGet("{id}")]
         public IActionResult BuscarVenda(int id)
         {
-            return Ok();
+            var venda = _context.Vendas.Find(id);
+
+            if (venda == null)
+            {
+                return NotFound();
+            }
+            return Ok(venda);
         }
 
         /* Atualizar venda: Permite que seja atualizado o status da venda.
