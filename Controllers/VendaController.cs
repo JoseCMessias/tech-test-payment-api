@@ -26,13 +26,8 @@ namespace tech_test_payment_api.Controllers
             _context.Add(venda);
             _context.SaveChanges();
 
-            if (venda.Id == null)
-            {
-                return NotFound();
-            }
-
-            // return Ok(venda);
             return Ok("Aguardando pagamento");
+            // return Ok(venda);
         }
 
         // Buscar venda: Busca pelo Id da venda;
@@ -51,10 +46,27 @@ namespace tech_test_payment_api.Controllers
         /* Atualizar venda: Permite que seja atualizado o status da venda.
         OBS.: Possíveis status: Pagamento aprovado | Enviado para transportadora | Entregue | Cancelada.
         */
-        [HttpPut("AtualizarVenda")]
-        public IActionResult AtualizarVenda()
+        [HttpPut("AtualizarVenda/{id}")]
+        public IActionResult AtualizarVenda(int id, Venda venda)
         {
-            return Ok();
+            var vendaBanco = _context.Vendas.Find(id);
+
+            if (vendaBanco == null)
+            {
+                return NotFound();
+            }
+
+            vendaBanco.Nome = venda.Nome;
+            vendaBanco.CPF = venda.CPF;
+            vendaBanco.Telefone = venda.Telefone;
+            vendaBanco.Id = venda.Id;
+            vendaBanco.IdDoItem = venda.IdDoItem;
+            vendaBanco.IdDoPedido = vendaBanco.IdDoPedido;
+
+            _context.Vendas.Update(vendaBanco);
+            _context.SaveChanges();
+
+            return Ok(vendaBanco);
         }
     }
 }
