@@ -31,7 +31,7 @@ namespace tech_test_payment_api.Controllers
         }
 
         // Buscar venda: Busca pelo Id da venda;
-        [HttpGet("{id}")]
+        [HttpGet("BuscarVenda/{id}")]
         public IActionResult BuscarVenda(int id)
         {
             var venda = _context.Vendas.Find(id);
