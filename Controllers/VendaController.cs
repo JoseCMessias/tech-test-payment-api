@@ -19,7 +19,7 @@ namespace tech_test_payment_api.Controllers
             _context = context;
         }
 
-        [HttpPost("RegistrarVenda")] //Post envia
+        [HttpPost("RegistrarVenda")]
         public IActionResult RegistrarVenda(Venda venda)
         {
             _context.Add(venda);
