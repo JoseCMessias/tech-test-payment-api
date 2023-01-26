@@ -19,7 +19,6 @@ namespace tech_test_payment_api.Controllers
             _context = context;
         }
 
-        // Registrar venda: Recebe os dados do vendedor + itens vendidos. Registra venda com status "Aguardando pagamento";
         [HttpPost("RegistrarVenda")] //Post envia
         public IActionResult RegistrarVenda(Venda venda)
         {
@@ -27,10 +26,8 @@ namespace tech_test_payment_api.Controllers
             _context.SaveChanges();
 
             return Ok("Aguardando pagamento");
-            // return Ok(venda);
         }
 
-        // Buscar venda: Busca pelo Id da venda;
         [HttpGet("BuscarVenda/{id}")]
         public IActionResult BuscarVenda(int id)
         {
@@ -43,9 +40,6 @@ namespace tech_test_payment_api.Controllers
             return Ok(venda);
         }
 
-        /* Atualizar venda: Permite que seja atualizado o status da venda.
-        OBS.: Possíveis status: Pagamento aprovado | Enviado para transportadora | Entregue | Cancelada.
-        */
         [HttpPut("AtualizarVenda/{id}")]
         public IActionResult AtualizarVenda(int id, Venda venda)
         {
