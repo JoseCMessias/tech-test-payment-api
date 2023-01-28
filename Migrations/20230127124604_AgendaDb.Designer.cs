@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using tech_test_payment_api.Context;
 
@@ -11,9 +12,10 @@ using tech_test_payment_api.Context;
 namespace tech_test_payment_api.Migrations
 {
     [DbContext(typeof(VendaContext))]
-    partial class VendaContextModelSnapshot : ModelSnapshot
+    [Migration("20230127124604_AgendaDb")]
+    partial class AgendaDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

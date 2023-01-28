@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using tech_test_payment_api.Enum;
 
 namespace tech_test_payment_api.Models
 {
     public class Venda : Vendedor
     {
-        public int IdDoPedido { get; set; }
-        public int IdDoItem { get; set; }
-        public DateTime Data { get; set; }
+        public DateTime Date { get; set; }
+        public int IdVenda { get; set; }
+        public StatusVenda StatusVenda { get; set; }
+        //public List<Item> ItemVendido { get; set; }
     }
 }
