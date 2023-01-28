@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using tech_test_payment_api.Enum;
 
 namespace tech_test_payment_api.Models
@@ -11,6 +7,7 @@ namespace tech_test_payment_api.Models
         public DateTime Date { get; set; }
         public int IdVenda { get; set; }
         public StatusVenda StatusVenda { get; set; }
-        //public List<Item> ItemVendido { get; set; }
+
+        //public List<Item> ItemVendido { get; set; }        
     }
 }
