@@ -4,7 +4,7 @@ namespace tech_test_payment_api.Helpers
 {
     public static class StateMachine
     {
-        private static readonly Dictionary<StatusVenda, List<StatusVenda>> _states = new();
+        private static Dictionary<StatusVenda, List<StatusVenda>> _states = new();
         public static void Process(StatusVenda statusVenda, List<StatusVenda> permit)
         {
             statusVenda.Configure(permit);
